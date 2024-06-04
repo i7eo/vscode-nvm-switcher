@@ -3,7 +3,7 @@
   "displayName": "vscode-nvm-switcher",
   "description": "vscode-nvm-switcher",
   "packageManager": "pnpm@9.1.4",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/i7eo/vscode-nvm-switcher#readme",
   "bugs": {
     "url": "https://github.com/i7eo/vscode-nvm-switcher/issues"
@@ -58,6 +58,7 @@
     "npm-run-all2": "^6.2.0",
     "typescript": "^5.4.5",
     "@vscode/test-cli": "^0.0.9",
-    "@vscode/test-electron": "^2.4.0"
+    "@vscode/test-electron": "^2.4.0",
+    "@vscode/vsce": "^2.26.1"
   }
 }

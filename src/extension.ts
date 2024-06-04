@@ -3,15 +3,12 @@
 import * as vscode from "vscode";
 
 function use(vt: vscode.Terminal) {
-  console.log(vt.name);
-  console.log((vt.creationOptions as any).shellPath);
+  // console.log(vt.name);
+  // console.log((vt.creationOptions as any).shellPath);
   const isWin = process.platform === "win32";
-  const powershellNames = ["powershell", "PowerShell"];
-  const isWinPowerShell = powershellNames.some((name) =>
-    (vt.creationOptions as any).shellPath?.includes(name)
-  );
   if (isWin) {
-    vt.sendText("nvm use $(Get-Content .nvmrc).replace('v', '')");
+    // vt.sendText("nvm use $(cat .nvmrc).replace('v', '')");
+    vt.sendText("nvm use $(cat .nvmrc)");
   } else {
     vt.sendText("nvm use");
   }
@@ -31,17 +28,6 @@ export function activate(context: vscode.ExtensionContext) {
     terminals.forEach((vt: vscode.Terminal) => use(vt));
   }
   vscode.window.onDidOpenTerminal((vt: vscode.Terminal) => use(vt));
-
-  // // The command has been defined in the package.json file
-  // // Now provide the implementation of the command with registerCommand
-  // // The commandId parameter must match the command field in package.json
-  // let disposable = vscode.commands.registerCommand("hw.helloWorld", () => {
-  //   // The code you place here will be executed every time your command is executed
-  //   // Display a message box to the user
-  //   vscode.window.showInformationMessage("Hello World from vscode!");
-  // });
-
-  // context.subscriptions.push(disposable);
 }
 
 // This method is called when your extension is deactivated
